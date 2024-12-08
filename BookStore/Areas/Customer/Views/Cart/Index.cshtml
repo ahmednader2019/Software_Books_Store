@@ -1,0 +1,89 @@
+﻿@using BookStore.Models.ViewModels
+@model ShoppingCartVM
+
+<form method="post">
+    <div class="card shadow-sm border-0 mt-4 mb-4">
+        <div class="card-header bg-dark text-light py-4 text-center">
+            <h5 class="mb-0 text-uppercase">Shopping Cart</h5>
+        </div>
+
+        <div class="card-body my-4">
+            <div class="row mb-3">
+                <div class="col-md-3 offset-md-1">
+                    <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm text-uppercase mb-3">
+                        <i class="fas fa-shopping-bag me-1"></i> Continue Shopping
+                    </a>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                    @foreach (var item in Model.ShoppingCartList)
+                    {
+                        <div class="row border-bottom pb-3 mb-3 align-items-center">
+                            <div class="col-3 col-lg-1 text-center">
+                                <img src="@(string.IsNullOrEmpty(item.Product.ImageURL) ? Url.Content(item.Product.ImageURL) : item.Product.ImageURL)"
+                                     alt="@item.Product.Title"
+                                     class="img-fluid rounded shadow-sm"
+                                     onerror="this.onerror=null; this.src='~/images/fallback.jpg';" />
+                            </div>
+
+                            <div class="col-9 col-lg-5">
+                                <h6 class="text-uppercase fw-bold text-secondary">@item.Product.Title</h6>
+                            </div>
+                            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span class="fw-bold me-2">@item.Price.ToString("C")</span>
+                                    <span class="text-muted">&times;</span>
+                                    <span class="ms-2">@item.Count</span>
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-outline-primary">
+                                        <i class="fas fa-plus-square"></i>
+                                    </a>
+                                    <a asp-action="minus" asp-route-cartId="@item.Id" class="btn btn-outline-primary">
+                                        <i class="fas fa-minus-square"></i>
+                                    </a>
+                                    <a asp-action="remove" asp-route-cartId="@item.Id" class="btn btn-danger ms-2">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer bg-light">
+            <div class="row">
+                <div class="col-md-4 offset-md-4 text-center">
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span class="text-uppercase fw-semibold">Total (USD)</span>
+                            <strong class="text-dark">@Model.OrderHeader.OrderTotal.ToString("c")</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 offset-md-4">
+                    <a asp-action="Summary" class="btn btn-primary w-100 py-2 text-uppercase fw-semibold">
+                        <i class="fas fa-clipboard-check me-2"></i> Summary
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Add Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjzh+0qvmI0KujKPrq69pG6B6L6RiNx7M0L6" crossorigin="anonymous">
+
+<style>
+    /* Ensure icons are appropriately sized */
+    .btn i {
+        font-size: 1.5em; /* Adjust icon size if needed */
+    }
+
+    .img-fluid {
+        max-height: 100px; /* Set max height for product images */
+        object-fit: contain; /* Maintain aspect ratio */
+    }
+</style>

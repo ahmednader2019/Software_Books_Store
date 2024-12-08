@@ -1,0 +1,86 @@
+﻿@using BookStore.Models.Models
+@model ShoppingCart
+
+
+<form method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <div class="card shadow-sm border-0 mt-4 mb-4">
+        <div class="card-header bg-dark text-light py-4 text-center">
+            <h3 class="text-uppercase mb-1">@Model.Product.Title</h3>
+            <p class="text-white-50 fw-semibold">by @Model.Product.Author</p>
+        </div>
+
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-lg-3 offset-lg-1 text-center mb-3">
+                    <img src="@Model.Product.ImageURL"
+                         alt="@Model.Product.Title"
+                         class="img-fluid rounded shadow-sm"
+                         onerror="this.onerror=null; this.src='~/images/fallback.jpg';" />
+                </div>
+
+                <div class="col-lg-7">
+                    <span class="badge bg-secondary text-white mb-2">@Model.Product.Category.Name</span>
+
+                    <p class="text-muted">
+                        <i class="fas fa-barcode"></i> ISBN: <strong>@Model.Product.ISBN</strong>
+                    </p>
+                    <p class="text-decoration-line-through text-muted">
+                        List Price: @Model.Product.ListPrice.ToString("c")
+                    </p>
+
+                    <div class="text-center my-3">
+                        <div class="row g-0">
+                            <div class="col p-2 bg-light border">
+                                <strong>Quantity</strong>
+                            </div>
+                            <div class="col p-2 bg-light border">1-50</div>
+                            <div class="col p-2 bg-light border">51-100</div>
+                            <div class="col p-2 bg-light border">100+</div>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col p-2 text-warning fw-bold border">Price</div>
+                            <div class="col p-2 text-warning fw-bold border">@Model.Product.Price.ToString("c")</div>
+                            <div class="col p-2 text-warning fw-bold border">@Model.Product.Price50.ToString("c")</div>
+                            <div class="col p-2 text-warning fw-bold border">@Model.Product.Price100.ToString("c")</div>
+                        </div>
+                    </div>
+
+                    <p class="text-secondary lh-base mt-3">@Model.Product.Description</p>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-primary text-white border-0 fw-semibold">Count</span>
+                        <input type="number" asp-for="Count" value="1" class="form-control text-end" aria-label="Product Count" style="width: 60px; height: 38px;" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 text-uppercase fw-semibold d-flex align-items-center justify-content-center" style="border-radius: 20px; transition: background-color 0.3s;">
+                        <i class="fas fa-shopping-cart me-2"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a asp-action="Index" class="btn btn-outline-primary bg-gradient fw-semibold btn-sm text-uppercase">
+                    <i class="fas fa-home me-1"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Add Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM9Vmkv3a3olc4su5Q6R2e1u29L56Xtu+YjsRgk" crossorigin="anonymous">
+
+<style>
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+
+    .input-group-text {
+        min-width: 60px; /* Keep the label width consistent */
+    }
+
+    .form-control {
+        height: 38px; /* Set a specific height for the input field */
+    }
+</style>

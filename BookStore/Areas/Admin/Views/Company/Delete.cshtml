@@ -1,0 +1,97 @@
+﻿@using BookStore.Models.Models
+
+@model Product
+
+<form method="post" asp-area="Admin" asp-controller="Product" asp-action="Delete">
+    <div class="border p-4 mt-4 shadow-sm rounded">
+        <div class="row pb-2">
+            <h2 class="text-danger">
+                <i class="bi bi-trash-fill"></i> Delete Product
+            </h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product Title</label>
+            <div class="col-sm-9">
+                <input asp-for="Title" class="form-control" disabled>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product Description</label>
+            <div class="col-sm-9">
+                <input asp-for="Description" class="form-control" disabled>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product Author</label>
+            <div class="col-sm-9">
+                <input asp-for="Author" class="form-control" disabled>
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product ISBN</label>
+            <div class="col-sm-9">
+                <input asp-for="ISBN" class="form-control" disabled>
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product List Price</label>
+            <div class="col-sm-9">
+                <input asp-for="ListPrice" class="form-control" disabled>
+                <span asp-validation-for="ListPrice" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product Price</label>
+            <div class="col-sm-9">
+                <input asp-for="Price" class="form-control" disabled>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product Price50</label>
+            <div class="col-sm-9">
+                <input asp-for="Price50" class="form-control" disabled>
+                <span asp-validation-for="Price50" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-form-label col-sm-3">Product Price100</label>
+            <div class="col-sm-9">
+                <input asp-for="Price100" class="form-control" disabled>
+                <span asp-validation-for="Price100" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                    <i class="bi bi-trash-fill"></i> Delete
+                </button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="btn btn-light" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                    <i class="bi bi-arrow-left-circle"></i> Back To List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" />
+}

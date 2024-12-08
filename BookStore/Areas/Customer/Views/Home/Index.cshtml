@@ -1,0 +1,49 @@
+﻿@using BookStore.Models.Models
+@model IEnumerable<Product>
+
+<style>
+    .product-card {
+        height: 100%; /* Ensures cards are the same height */
+    }
+
+    .product-img {
+        height: 300px; /* Increased height for all product images to 300px */
+        width: 100%; /* Ensures images take full width of the card */
+        object-fit: cover; /* Maintains aspect ratio while covering the area */
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: space-between; /* Space out the content evenly */
+    }
+</style>
+
+<div class="row pb-3">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card border-0 shadow-sm rounded product-card">
+                <img src="@product.ImageURL" class="card-img-top rounded-top img-fluid product-img" alt="@product.Title" onerror="this.onerror=null; this.src='~/images/fallback.jpg';" />
+                <div class="card-body text-center">
+                    <h5 class="card-title text-dark fw-bold text-uppercase mb-1">@product.Title</h5>
+                    <p class="text-warning mb-2"><small>by <strong>@product.Author</strong></small></p>
+
+                    <p class="text-muted mb-0">
+                        <small>List Price: <span class="text-decoration-line-through">@product.ListPrice.ToString("c")</span></small>
+                    </p>
+                    <p class="text-primary fw-bold">
+                        <small>As low as: <span>@product.Price100.ToString("c")</span></small>
+                    </p>
+
+                    <a asp-action="details" asp-route-id="@product.Id" class="btn btn-primary bg-gradient w-100 mt-3">
+                        <i class="fas fa-info-circle me-1"></i> Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Add Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM9Vmkv3a3olc4su5Q6R2e1u29L56Xtu+YjsRgk" crossorigin="anonymous">

@@ -1,0 +1,57 @@
+﻿@model Category
+
+<form method="post" asp-area="Admin" asp-controller="Category" asp-action="Delete">
+    <div class="border p-4 rounded shadow-sm mt-4">
+        <!-- Header -->
+        <div class="row mb-3">
+            <div class="col-12">
+                <h2 class="text-danger">
+                    <i class="bi bi-trash-fill"></i> Delete Category
+                </h2>
+                <hr />
+            </div>
+        </div>
+
+        <!-- Validation Summary -->
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <!-- Category Name (Disabled) -->
+        <div class="mb-4">
+            <label class="form-label">
+                <i class="bi bi-card-text text-secondary"></i> Category Name
+            </label>
+            <input asp-for="Name" disabled class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <!-- Display Order (Disabled) -->
+        <div class="mb-4">
+            <label class="form-label">
+                <i class="bi bi-sort-numeric-down text-secondary"></i> Display Order
+            </label>
+            <input asp-for="DisplayOrder" disabled class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="row mt-4">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger w-100 d-flex align-items-center justify-content-center" style="max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                    <i class="bi bi-trash me-2"></i> Delete
+                </button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center" style="max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                    <i class="bi bi-arrow-left-circle me-2"></i> Back To List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}
+
+<!-- Add Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" />

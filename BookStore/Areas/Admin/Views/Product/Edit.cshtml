@@ -1,0 +1,95 @@
+﻿@using BookStore.Models.Models
+@model Product
+
+<form method="post" asp-area="Admin" asp-controller="Product" asp-action="Edit" enctype="multipart/form-data">
+    <input asp-for="@Model.Id" hidden />
+    <input asp-for="@Model.ImageURL" hidden />
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4">
+                <div class="row pb-2">
+                    <h2 class="text-primary">
+                        <i class="bi bi-pencil-fill"></i> Edit Product
+                    </h2>
+                    <hr />
+                </div>
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="mb-3 row p-1">
+                    <label>Product Title</label>
+                    <input asp-for="Title" class="form-control">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row p-1">
+                    <label>Product Description</label>
+                    <input asp-for="Description" class="form-control">
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label>Product Author</label>
+                    <input asp-for="Author" class="form-control">
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label>Product ISBN</label>
+                    <input asp-for="ISBN" class="form-control">
+                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label>Product List Price</label>
+                    <input asp-for="ListPrice" class="form-control">
+                    <span asp-validation-for="ListPrice" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label>Product Price</label>
+                    <input asp-for="Price" class="form-control">
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label>Product Price50</label>
+                    <input asp-for="Price50" class="form-control">
+                    <span asp-validation-for="Price50" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label>Product Price100</label>
+                    <input asp-for="Price100" class="form-control">
+                    <span asp-validation-for="Price100" class="text-danger"></span>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                            <i class="bi bi-pencil-fill"></i> Edit
+                        </button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="btn btn-light" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                            <i class="bi bi-arrow-left-circle"></i> Back To List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            @if (!string.IsNullOrEmpty(Model.ImageURL))
+            {
+                <img src="@Url.Content("~/" + Model.ImageURL)" alt="Product Image" width="100%"
+                     style="border-radius:5px; border:1px solid white" />
+            }
+            else
+            {
+                <p>No image available.</p>
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

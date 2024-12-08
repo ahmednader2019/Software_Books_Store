@@ -1,0 +1,49 @@
+/* _content/BookStore_Razor/Pages/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-dyelc9tqvr] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-dyelc9tqvr] {
+  color: #0077cc;
+}
+
+.btn-primary[b-dyelc9tqvr] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-dyelc9tqvr], .nav-pills .show > .nav-link[b-dyelc9tqvr] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-dyelc9tqvr] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-dyelc9tqvr] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-dyelc9tqvr] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-dyelc9tqvr] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-dyelc9tqvr] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

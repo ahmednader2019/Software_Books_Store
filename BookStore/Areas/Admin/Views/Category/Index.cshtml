@@ -1,0 +1,52 @@
+﻿@model List<Category>
+
+<partial name="_Notification" />
+<div class="container">
+    <!-- Header Section -->
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                <i class="bi bi-list-ul"></i> Category List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-area="Admin" asp-controller="Category" asp-action="Create" class="btn btn-success">
+                <i class="bi bi-plus-circle me-1"></i> Create New Category
+            </a>
+        </div>
+    </div>
+
+    <!-- Category Table -->
+    <table class="table table-hover shadow-sm border rounded">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Category Name</th>
+                <th scope="col">Display Order</th>
+                <th scope="col" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderBy(o => o.DisplayOrder))
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.DisplayOrder</td>
+                    <td class="text-center">
+                        <!-- Edit Button -->
+                        <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm mx-1">
+                            <i class="bi bi-pen-fill"></i> Edit
+                        </a>
+                        <!-- Delete Button -->
+                        <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm mx-1">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" />
+}

@@ -1,0 +1,84 @@
+﻿@using BookStore.Models.Models
+
+@model Company
+
+<form method="post" asp-area="Admin" asp-controller="Company" asp-action="Edit" enctype="multipart/form-data">
+    <input asp-for="Id" hidden>
+    <div class="container mt-4">
+        <div class="border p-4 shadow-sm rounded">
+            <div class="row pb-2">
+                <h2 class="text-primary">
+                    <i class="bi bi-pencil-square"></i> Edit Company
+                </h2>
+                <hr />
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-3">Name</label>
+                <div class="col-sm-9">
+                    <input asp-for="Name" class="form-control">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-3">Street Address</label>
+                <div class="col-sm-9">
+                    <input asp-for="streetAddress" class="form-control">
+                    <span asp-validation-for="streetAddress" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-3">City</label>
+                <div class="col-sm-9">
+                    <input asp-for="city" class="form-control">
+                    <span asp-validation-for="city" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-3">State</label>
+                <div class="col-sm-9">
+                    <input asp-for="state" class="form-control">
+                    <span asp-validation-for="state" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-3">Postal Code</label>
+                <div class="col-sm-9">
+                    <input asp-for="postalCode" class="form-control">
+                    <span asp-validation-for="postalCode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-3">Phone Number</label>
+                <div class="col-sm-9">
+                    <input asp-for="phoneNumber" class="form-control">
+                    <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a asp-area="Admin" asp-controller="Company" asp-action="Index" class="btn btn-light" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                        <i class="bi bi-arrow-left-circle"></i> Back To List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" />
+}

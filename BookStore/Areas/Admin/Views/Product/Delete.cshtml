@@ -1,0 +1,79 @@
+﻿@using BookStore.Models.Models
+
+@model Product
+
+<form method="post" asp-area="Admin" asp-controller="Product" asp-action="Delete">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-danger">
+                <i class="bi bi-trash"></i> Delete Product
+            </h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3 row p-1">
+            <label>Product Title</label>
+            <input asp-for="Title" class="form-control" readonly>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label>Product Description</label>
+            <input asp-for="Description" class="form-control" readonly>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label>Product Author</label>
+            <input asp-for="Author" class="form-control" readonly>
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label>Product ISBN</label>
+            <input asp-for="ISBN" class="form-control" readonly>
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label>Product List Price</label>
+            <input asp-for="ListPrice" class="form-control" readonly>
+            <span asp-validation-for="ListPrice" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label>Product Price</label>
+            <input asp-for="Price" class="form-control" readonly>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label>Product Price50</label>
+            <input asp-for="Price50" class="form-control" readonly>
+            <span asp-validation-for="Price50" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label>Product Price100</label>
+            <input asp-for="Price100" class="form-control" readonly>
+            <span asp-validation-for="Price100" class="text-danger"></span>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                    <i class="bi bi-trash"></i> Delete
+                </button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn btn-light" style="width: 100%; max-width: 200px; padding: 10px 20px; font-size: 16px;">
+                    <i class="bi bi-arrow-left-circle"></i> Back To List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

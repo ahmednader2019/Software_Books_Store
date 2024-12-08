@@ -1,0 +1,12 @@
+C:\.NET MVC Project\BookStore.Models\bin\Debug\net8.0\BookStore.Models.deps.json
+C:\.NET MVC Project\BookStore.Models\bin\Debug\net8.0\BookStore.Models.dll
+C:\.NET MVC Project\BookStore.Models\bin\Debug\net8.0\BookStore.Models.pdb
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\BookStore.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\BookStore.Models.AssemblyInfoInputs.cache
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\BookStore.Models.AssemblyInfo.cs
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\BookStore.Models.csproj.CoreCompileInputs.cache
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\BookStore.Models.dll
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\refint\BookStore.Models.dll
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\BookStore.Models.pdb
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\ref\BookStore.Models.dll
+C:\.NET MVC Project\BookStore.Models\obj\Debug\net8.0\BookStore.Models.csproj.AssemblyReference.cache

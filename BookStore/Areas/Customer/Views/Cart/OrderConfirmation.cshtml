@@ -1,0 +1,22 @@
+﻿@model int
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center mb-4">
+            <h1 class="text-success fw-bold">
+                <i class="fas fa-check-circle me-2"></i> Order Placed Successfully!
+            </h1>
+            <p class="lead">Thank you for your purchase!</p>
+            <h4 class="text-muted">Your Order Number is: <span class="fw-bold text-dark">@Model</span></h4>
+            <div class="my-4">
+                <img src="~/Images/lawn_leaf.jpg" class="img-fluid rounded shadow-sm" style="max-width: 75%;" alt="Order Confirmation" />
+            </div>
+        </div>
+        <div class="col-12 text-center text-danger fw-semibold">
+            <p>Your order has been placed successfully!</p>
+        </div>
+    </div>
+</div>
+
+<!-- Add Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM9Vmkv3a3olc4su5Q6R2e1u29L56Xtu+YjsRgk" crossorigin="anonymous">
